@@ -4,6 +4,12 @@ A native macOS menu-bar app that tracks your **Claude Code** and **OpenAI Codex*
 
 Everything runs **locally**. Your credentials never leave your machine — the app talks only to Anthropic's own API using your existing Claude Code login, and reads local transcripts on disk.
 
+<p align="center">
+  <img src="docs/popup.png" alt="Redline menu-bar popover" width="300">
+  &nbsp;&nbsp;
+  <img src="docs/widget.png" alt="Redline desktop widget" width="340">
+</p>
+
 ## Features
 
 - **Live limits** — 5-hour, weekly, and per-model (Opus/Sonnet) windows with reset timers.
