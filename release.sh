@@ -57,7 +57,13 @@ ln -s /Applications "$STAGING/Applications"
 rm -f "$DMG"
 hdiutil create -volname "$APP_NAME" -srcfolder "$STAGING" -ov -format UDZO "$DMG" >/dev/null
 rm -rf "$STAGING"
-echo "✓ $DMG"
+
+# Sign the DMG itself with Developer ID so Gatekeeper accepts it on open
+# (a stapled ticket alone leaves the disk image unsigned → `spctl -t open` rejects).
+DEV_ID_APP="$(security find-identity -v -p codesigning \
+  | grep 'Developer ID Application' | head -1 | sed -E 's/.*"(Developer ID Application: .*)"/\1/')"
+codesign --force --timestamp --sign "$DEV_ID_APP" "$DMG"
+echo "✓ $DMG (signed)"
 
 if [ "${SKIP_NOTARIZE:-}" = "1" ]; then
   echo "▸ SKIP_NOTARIZE=1 — signed DMG built, not notarized."
