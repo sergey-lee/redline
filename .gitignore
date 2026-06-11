@@ -1,0 +1,30 @@
+# Generated Xcode project (regenerate with `xcodegen generate`)
+Redline.xcodeproj/
+
+# Swift / SwiftPM
+.build/
+.swiftpm/
+Package.resolved
+
+# Build output
+build/
+.xcbuild/
+dist/
+DerivedData/
+*.app
+*.dmg
+*.xcarchive
+
+# Generated entitlements / Info.plist are produced by XcodeGen from project.yml
+# (kept out of git so they don't drift from the spec)
+Resources/Info.plist
+Resources/Redline.entitlements
+Resources/RedlineWidget.entitlements
+Resources/RedlineWidget-Info.plist
+
+# Icon intermediates (source of truth: Resources/Redline.icns)
+Redline.iconset/
+icon_preview.png
+
+# macOS
+.DS_Store
